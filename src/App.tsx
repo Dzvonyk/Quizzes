@@ -1,26 +1,28 @@
 import React from 'react';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 import logo from './logo.svg';
 import './App.css';
+import HomePage from './pages/home.page';
+import PlayPage from './pages/play.page';
+import FinishPage from './pages/finish.page';
+import { Box, Container } from '@mui/material';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Container maxWidth="sm">
+        <Box textAlign="center" mt={3}>
+          <Routes>
+            <Route path="/" element={<HomePage />}/>
+            <Route path="/play" element={<PlayPage />}/>
+            <Route path="/finish" element={<FinishPage />}/>
+          </Routes>
+        </Box>
+      </Container>
+    </Router>
+  )
 }
 
-export default App;
+export default App  
