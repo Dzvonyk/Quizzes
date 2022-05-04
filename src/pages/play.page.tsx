@@ -11,7 +11,7 @@ const clineLocalStorage = (score?: number) => {
   localStorage.setItem('Category', "");
   localStorage.setItem('Difficulty', "");
   localStorage.setItem('Type', "");
-  {score? localStorage.setItem('Score', `${score}`): localStorage.setItem('Score', "")}
+  { score? localStorage.setItem('Score', `${score}`): localStorage.setItem('Score', "") }
   
 }
 
@@ -33,12 +33,13 @@ const PlayPage = () =>  {
   const [score, setScore] = useState(0)
   const { response, loading } = useAxios(apiURL);
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [options, setOptions] = useState([]);
+  let any:any[] = [];
+  const [options, setOptions] = useState(any);
 
   useEffect(() => {
     if (response?.results.length) {
       const question = response.results[questionIndex];
-      let answers = [...question.incorrect_answers];
+      const answers = [...question.incorrect_answers];
       answers.splice(
         getRandomNumber(question.incorrect_answers.length + 1),
         0,

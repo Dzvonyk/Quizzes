@@ -3,7 +3,6 @@ import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 const  SelectField = (props: { label: any; options: any; }) => {
     const { label, options } = props;
-    // const dispatch = useDispatch();
     const [value, setValue] = useState("");
     const handleChange = (e:any) => {
       setValue(e.target.value)
@@ -16,7 +15,6 @@ const  SelectField = (props: { label: any; options: any; }) => {
       if(label === "Type"){
         localStorage.setItem('Type', e.target.value);
       }
-
     }
 
     return ( 
